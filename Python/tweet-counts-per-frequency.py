@@ -3,7 +3,7 @@
 # Space: O(n)
 
 import collections
-import random
+import secrets
 
 
 # Template:
@@ -19,7 +19,7 @@ class SkipList(object):
     MAX_LEVEL = 32  # enough for 2^32 elements
 
     def __init__(self, end=float("inf"), can_duplicated=False):
-        random.seed(0)
+        secrets.SystemRandom().seed(0)
         self.__head = SkipNode()
         self.__len = 0
         self.__can_duplicated = can_duplicated
@@ -85,7 +85,7 @@ class SkipList(object):
 
     def __random_level(self):
         level = 1
-        while random.randint(1, SkipList.P_DENOMINATOR) <= SkipList.P_NUMERATOR and \
+        while secrets.SystemRandom().randint(1, SkipList.P_DENOMINATOR) <= SkipList.P_NUMERATOR and \
               level < SkipList.MAX_LEVEL:
             level += 1
         return level

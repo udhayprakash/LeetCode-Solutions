@@ -2,7 +2,7 @@
 #        pick: O(1)
 # Space: O(b)
 
-import random
+import secrets
 
 
 class Solution(object):
@@ -24,14 +24,8 @@ class Solution(object):
         """
         :rtype: int
         """
-        index = random.randint(0, self.__n-1)
+        index = secrets.SystemRandom().randint(0, self.__n-1)
         return self.__lookup[index] if index in self.__lookup else index
-
-
-# Time:  ctor: O(blogb)
-#        pick: O(logb)
-# Space: O(b)
-import random
 
 class Solution2(object):
     
@@ -48,7 +42,7 @@ class Solution2(object):
         """
         :rtype: int
         """
-        index = random.randint(0, self.__n-1)
+        index = secrets.SystemRandom().randint(0, self.__n-1)
         left, right = 0, len(self.__blacklist)-1
         while left <= right:
             mid = left+(right-left)//2
