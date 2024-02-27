@@ -43,5 +43,5 @@ class Solution3(object):
         :rtype: int
         """
         nums = sorted(nums)
-        return sum([nums[i] for i in range(0, len(nums), 2)])
+        return sum(nums[i] for i in range(0, len(nums), 2))
 
