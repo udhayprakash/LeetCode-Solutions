@@ -17,7 +17,7 @@ class Solution(object):
 
         def bfs(blocks, source, target):
             max_area_surrounded_by_blocks = len(blocks)*(len(blocks)-1)//2
-            lookup = set([source])
+            lookup = {source}
             if len(lookup) > max_area_surrounded_by_blocks:
                 return True
             q = collections.deque([source])

@@ -11,7 +11,7 @@ class Solution(object):
         :type wordList: List[str]
         :rtype: int
         """
-        distance, cur, visited, lookup = 0, [beginWord], set([beginWord]), set(wordList)
+        distance, cur, visited, lookup = 0, [beginWord], {beginWord}, set(wordList)
 
         while cur:
             next_queue = []

@@ -15,7 +15,7 @@ class Solution(object):
         """
         directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
 
-        lookup, q, borders = set([(r0, c0)]), collections.deque([(r0, c0)]), []
+        lookup, q, borders = {(r0, c0)}, collections.deque([(r0, c0)]), []
         while q:
             r, c = q.popleft()
             is_border = False

@@ -55,7 +55,7 @@ class Solution2(object):
         """
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         max_heap = [(-A[0][0], 0, 0)]
-        lookup = set([(0, 0)])
+        lookup = {(0, 0)}
         while max_heap:
             i, r, c = heapq.heappop(max_heap)
             if r == len(A)-1 and c == len(A[0])-1:

@@ -14,7 +14,7 @@ class Solution(object):
 
         def can_reach(grid, b, p, t):
             closer, detour = [p], []
-            lookup = set([b])
+            lookup = {b}
             while closer or detour:
                 if not closer:
                     closer, detour = detour, closer

@@ -14,7 +14,7 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         dictionary = set(wordList)
-        result, cur, visited, found, trace = [], [beginWord], set([beginWord]), False, defaultdict(list)
+        result, cur, visited, found, trace = [], [beginWord], {beginWord}, False, defaultdict(list)
 
         while cur and not found:
             for word in cur:

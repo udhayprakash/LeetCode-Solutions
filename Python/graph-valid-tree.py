@@ -21,7 +21,7 @@ class Solution(object):
 
         # BFS to check whether the graph is valid tree.
         q = collections.deque([0])
-        visited = set([0])
+        visited = {0}
         while q:
             curr = q.popleft()
             for node in neighbors[curr]:
@@ -49,7 +49,7 @@ class Solution2(object):
 
         # BFS to check whether the graph is valid tree.
         q = collections.deque([0])
-        visited = set([0])
+        visited = {0}
         while q:
             i = q.popleft()
             for node in neighbors[i]:

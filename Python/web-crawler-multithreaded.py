@@ -56,7 +56,7 @@ class Solution(object):
         workers = []
         self.__q = Queue.Queue()
         self.__q.put(startUrl)
-        lookup = set([startUrl])
+        lookup = {startUrl}
         for i in xrange(self.NUMBER_OF_WORKERS):
             t = threading.Thread(target=worker, args=(htmlParser, lookup))
             t.start()
@@ -121,7 +121,7 @@ class Solution2(object):
 
         workers = []
         self.__q = collections.deque([startUrl])
-        lookup = set([startUrl])
+        lookup = {startUrl}
         for i in xrange(self.NUMBER_OF_WORKERS):
             t = threading.Thread(target=worker, args=(htmlParser, lookup))
             t.start()
