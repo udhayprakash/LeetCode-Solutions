@@ -2,7 +2,7 @@
 # Space: O(1)
 
 # quick select solution
-from random import randint
+import secrets
 
 
 class Solution(object):
@@ -29,7 +29,7 @@ class Solution(object):
 
             left, right = 0, len(nums) - 1
             while left <= right:
-                pivot_idx = randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums, compare)
                 if new_pivot_idx == k:
                     return

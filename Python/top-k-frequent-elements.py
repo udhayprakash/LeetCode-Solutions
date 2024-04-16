@@ -2,6 +2,7 @@
 # Space: O(n)
 
 import collections
+import secrets
 
 
 class Solution(object):
@@ -23,12 +24,6 @@ class Solution(object):
                 if len(result) == k:
                     return result
         return result
-
-
-# Time:  O(n) ~ O(n^2), O(n) on average.
-# Space: O(n)
-# Quick Select Solution
-from random import randint
 class Solution2(object):
     def topKFrequent(self, nums, k):
         """
@@ -62,7 +57,7 @@ class Solution2(object):
 
         left, right = 0, len(nums) - 1
         while left <= right:
-            pivot_idx = randint(left, right)
+            pivot_idx = secrets.SystemRandom().randint(left, right)
             new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums)
             if new_pivot_idx == k:
                 return
