@@ -3,8 +3,8 @@
 # Space: O(n)
 
 import collections
-import random
 import bisect
+import secrets
 
 
 class MajorityChecker(object):
@@ -32,7 +32,7 @@ class MajorityChecker(object):
                    bisect.bisect_left(inv_idx[m], left)
 
         for _ in xrange(self.__K):
-            m = self.__arr[random.randint(left, right)]
+            m = self.__arr[secrets.SystemRandom().randint(left, right)]
             if count(self.__inv_idx, m, left, right) >= threshold:
                 return m
         return -1

@@ -5,7 +5,7 @@
 # Space: O(n)
 
 import collections
-import random
+import secrets
 
 
 class Leaderboard(object):
@@ -40,7 +40,7 @@ class Leaderboard(object):
 
             left, right = 0, len(nums) - 1
             while left <= right:
-                pivot_idx = random.randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums, compare)
                 if new_pivot_idx == k:
                     return
