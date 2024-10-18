@@ -1,7 +1,7 @@
 # Time:  O(1)
 # Space: O(n)
 
-import random
+import secrets
 
 
 class Codec(object):
@@ -20,7 +20,7 @@ class Codec(object):
         def getRand():
             rand = []
             for _ in xrange(self.__random_length):
-                rand += self.__alphabet[random.randint(0, len(self.__alphabet)-1)]
+                rand += self.__alphabet[secrets.SystemRandom().randint(0, len(self.__alphabet)-1)]
             return "".join(rand)
 
         key = getRand()

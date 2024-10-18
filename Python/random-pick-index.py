@@ -1,7 +1,7 @@
 # Time:  O(n)
 # Space: O(1)
 
-from random import randint
+import secrets
 
 class Solution(object):
 
@@ -23,7 +23,7 @@ class Solution(object):
         for i in xrange(len(self.__nums)):
             if self.__nums[i] != target:
                 continue
-            reservoir = i if randint(1, n+1) == 1 else reservoir
+            reservoir = i if secrets.SystemRandom().randint(1, n+1) == 1 else reservoir
             n += 1
         return reservoir
 

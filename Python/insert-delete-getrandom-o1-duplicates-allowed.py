@@ -1,8 +1,8 @@
 # Time:  O(1)
 # Space: O(n)
 
-from random import randint
 from collections import defaultdict
+import secrets
 
 class RandomizedCollection(object):
 
@@ -52,4 +52,4 @@ class RandomizedCollection(object):
         Get a random element from the collection.
         :rtype: int
         """
-        return self.__list[randint(0, len(self.__list)-1)][0]
+        return self.__list[secrets.SystemRandom().randint(0, len(self.__list)-1)][0]
