@@ -1,7 +1,7 @@
 # Time:  O(1)
 # Space: O(n)
 
-from random import randint
+import secrets
 
 class RandomizedSet(object):
 
@@ -50,7 +50,7 @@ class RandomizedSet(object):
         Get a random element from the set.
         :rtype: int
         """
-        return self.__set[randint(0, len(self.__set)-1)]
+        return self.__set[secrets.SystemRandom().randint(0, len(self.__set)-1)]
 
 
 
