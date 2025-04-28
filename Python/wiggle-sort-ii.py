@@ -1,6 +1,8 @@
 # Time:  O(nlogn)
 # Space: O(n)
 
+import secrets
+
 class Solution(object):
     def wiggleSort(self, nums):
         """
@@ -10,11 +12,6 @@ class Solution(object):
         nums.sort()
         med = (len(nums) - 1) / 2
         nums[::2], nums[1::2] = nums[med::-1], nums[:med:-1]
-
-# Time:  O(n) ~ O(n^2)
-# Space: O(1)
-# Tri Partition (aka Dutch National Flag Problem) with virtual index solution. (TLE)
-from random import randint
 class Solution2(object):
     def wiggleSort(self, nums):
         """
@@ -24,7 +21,7 @@ class Solution2(object):
         def findKthLargest(nums, k):
             left, right = 0, len(nums) - 1
             while left <= right:
-                pivot_idx = randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = partitionAroundPivot(left, right, pivot_idx, nums)
                 if new_pivot_idx == k - 1:
                     return nums[new_pivot_idx]

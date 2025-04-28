@@ -1,7 +1,7 @@
 # Time:  O(n)
 # Space: O(n)
 
-import random
+import secrets
 
 
 class Solution(object):
@@ -30,7 +30,7 @@ class Solution(object):
         """
         nums = list(self.__nums)
         for i in xrange(len(nums)):
-            j = random.randint(i, len(nums)-1)
+            j = secrets.SystemRandom().randint(i, len(nums)-1)
             nums[i], nums[j] = nums[j], nums[i]
         return nums
 

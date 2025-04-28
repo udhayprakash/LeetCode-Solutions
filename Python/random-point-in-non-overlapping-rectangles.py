@@ -2,8 +2,8 @@
 #        pick: O(logn)
 # Space: O(n)
 
-import random
 import bisect
+import secrets
 
 
 class Solution(object):
@@ -21,7 +21,7 @@ class Solution(object):
         """
         :rtype: List[int]
         """
-        target = random.randint(0, self.__prefix_sum[-1]-1)
+        target = secrets.SystemRandom().randint(0, self.__prefix_sum[-1]-1)
         left = bisect.bisect_right(self.__prefix_sum, target)
         rect = self.__rects[left]
         width, height = rect[2]-rect[0]+1, rect[3]-rect[1]+1

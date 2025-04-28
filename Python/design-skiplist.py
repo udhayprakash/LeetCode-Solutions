@@ -5,7 +5,7 @@
 # 1. https://kunigami.blog/2012/09/25/skip-lists-in-python/
 # 2. https://opendatastructures.org/ods-cpp/4_4_Analysis_Skiplists.html
 # 3. https://brilliant.org/wiki/skip-lists/
-import random
+import secrets
 
 
 class SkipNode(object):
@@ -77,7 +77,7 @@ class Skiplist(object):
 
     def __random_level(self):
         level = 1
-        while random.randint(1, Skiplist.P_DENOMINATOR) <= Skiplist.P_NUMERATOR and \
+        while secrets.SystemRandom().randint(1, Skiplist.P_DENOMINATOR) <= Skiplist.P_NUMERATOR and \
               level < Skiplist.MAX_LEVEL:
             level += 1
         return level
