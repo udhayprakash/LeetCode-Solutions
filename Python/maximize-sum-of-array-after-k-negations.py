@@ -1,7 +1,7 @@
 # Time:  O(n) ~ O(n^2), O(n) on average.
 # Space: O(1)
 
-import random
+import secrets
 
 
 # quick select solution
@@ -26,7 +26,7 @@ class Solution(object):
 
             left, right = 0, len(nums) - 1
             while left <= right:
-                pivot_idx = random.randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums, compare)
                 if new_pivot_idx == k:
                     return

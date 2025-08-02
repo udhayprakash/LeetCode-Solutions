@@ -1,6 +1,8 @@
 # Time:  O(m * n)
 # Space: O(k)
 
+import secrets
+
 class Solution(object):
     def kWeakestRows(self, mat, k):
         """
@@ -56,11 +58,6 @@ class Solution2(object):
         return lookup.keys()
 
 
-# Time:  O(m * n + klogk)
-# Space: O(m)
-import random
-
-
 class Solution3(object):
     def kWeakestRows(self, mat, k):
         """
@@ -82,7 +79,7 @@ class Solution3(object):
 
             left, right = 0, len(nums) - 1
             while left <= right:
-                pivot_idx = random.randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = partition_around_pivot(left, right, pivot_idx, nums, compare)
                 if new_pivot_idx == n:
                     return

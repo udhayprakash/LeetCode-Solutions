@@ -1,7 +1,7 @@
 # Time:  O(n) ~ O(n^2)
 # Space: O(1)
 
-from random import randint
+import secrets
 
 class Solution(object):
     # @param {integer[]} nums
@@ -10,7 +10,7 @@ class Solution(object):
     def findKthLargest(self, nums, k):
         left, right = 0, len(nums) - 1
         while left <= right:
-            pivot_idx = randint(left, right)
+            pivot_idx = secrets.SystemRandom().randint(left, right)
             new_pivot_idx = self.PartitionAroundPivot(left, right, pivot_idx, nums)
             if new_pivot_idx == k - 1:
                 return nums[new_pivot_idx]
