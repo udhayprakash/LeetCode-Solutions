@@ -1,8 +1,8 @@
 # Time:  O(1)
 # Space: O(1)
 
-import random
 import math
+import secrets
 
 class Solution(object):
 
@@ -21,8 +21,8 @@ class Solution(object):
         """
         :rtype: List[float]
         """
-        r = (self.__radius) * math.sqrt(random.uniform(0, 1))
-        theta = (2*math.pi) * random.uniform(0, 1)
+        r = (self.__radius) * math.sqrt(secrets.SystemRandom().uniform(0, 1))
+        theta = (2*math.pi) * secrets.SystemRandom().uniform(0, 1)
         return (r*math.cos(theta) + self.__x_center,
                 r*math.sin(theta) + self.__y_center)
 

@@ -2,6 +2,8 @@
 # Space: O(n)
 
 # merge sort solution
+import secrets
+
 class Solution(object):
     def sortArray(self, nums):
         """
@@ -25,11 +27,6 @@ class Solution(object):
 
         mergeSort(0, len(nums), nums)
         return nums
-
-
-# Time:  O(nlogn), on average
-# Space: O(logn)
-import random
 # quick sort solution
 class Solution2(object):
     def sortArray(self, nums):
@@ -51,7 +48,7 @@ class Solution2(object):
 
             right -= 1
             while left <= right:
-                pivot_idx = random.randint(left, right)
+                pivot_idx = secrets.SystemRandom().randint(left, right)
                 new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums, compare)
                 if new_pivot_idx == k:
                     return

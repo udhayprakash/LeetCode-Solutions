@@ -3,7 +3,7 @@
 #        reset: O(min(f, r * c))
 # Space: O(min(f, r * c))
 
-import random
+import secrets
 
 
 class Solution(object):
@@ -24,7 +24,7 @@ class Solution(object):
         :rtype: List[int]
         """
         self.__n -= 1
-        target = random.randint(0, self.__n)
+        target = secrets.SystemRandom().randint(0, self.__n)
         x = self.__lookup.get(target, target)
         self.__lookup[target] = self.__lookup.get(self.__n, self.__n)
         return divmod(x, self.__n_cols)
